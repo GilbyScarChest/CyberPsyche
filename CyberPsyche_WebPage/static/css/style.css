@@ -1,0 +1,225 @@
+html {
+    width: 100%;
+    height: 100%;
+    background: black
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background: white !important;
+    justify-items: center;
+}
+
+a {
+    color: rgb(98, 98, 255);
+}
+
+.row {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.container {
+    padding: 0px !important;
+    margin: 0px !important;
+    max-width: 1500px !important;
+    width: 100%;
+    background: grey;
+    margin: 0 auto !important;
+    border-left: solid black 3px;
+    border-right: solid black 3px;
+    height: auto;
+}
+
+.logo {
+    height: 120px;
+    width: 110%;
+    background: rgb(98, 98, 255);
+    border: solid black 2px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white
+}
+
+.search {
+    width: 100% !important;
+}
+
+.navbar-form {
+    justify-content: end !important
+}
+
+.material-icons {
+    font-size: 36px !important;
+    margin: 6px;
+    color: rgb(98, 98, 255)
+}
+
+.tagline {
+    font-weight: bold;
+    font-style: italic
+}
+
+.header-img {
+    height: 400px;
+    background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80") no-repeat center;
+    background-size: cover;
+}
+
+.profile-img {
+    height: 200px;
+    border: solid black 3px;
+    border-radius: 50%;
+    margin-top: 20%;
+    z-index: 10;
+}
+
+#name {
+    margin-top: 23%;
+    margin-left: 30px;
+}
+
+.button-row {
+    height: 100px;
+    background: white;
+}
+
+.menu-btn {
+    padding: 2vw;
+    font-size: 18px;
+    background: rgb(98, 98, 255);
+    color: white;
+    border: solid white 4px
+}
+
+.comment-page {
+    background: rgb(211, 208, 208);
+}
+
+.comment {
+    display: block;
+    margin: 0 auto;
+    background: white;
+    width: 50%;
+    border: solid black 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    height: auto;
+}
+
+.comment h4 {
+    display: inline;
+    margin: 10px;
+}
+
+.comment p {
+    margin: 10px;
+    margin-left: 80px;
+    margin-top: 0px;
+}
+
+.com-img {
+    display: inline;
+    height: 50px;
+    border: solid black 2px;
+    margin: 10px;
+}
+
+.advert {
+    background: white;
+    height: auto;
+    padding: 20px;
+    margin: 0;
+    border: solid black 1px;
+}
+
+.advert img {
+    height: 200px;
+    margin-left: 25%;
+}
+
+#online {
+    padding: 20px;
+    background: white;
+}
+
+#online h3 {
+    text-decoration: underline;
+}
+
+.contact {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+}
+
+.contact img {
+    height: 50px;
+    border: solid white 3px;
+    border-radius: 50%;
+}
+
+.green {
+    height: 15px;
+    width: 15px;
+    background: rgb(0, 253, 0);
+    border-radius: 50%;
+}
+
+#send {
+    height: 40px;
+    background: rgb(60, 221, 60);
+    border-radius: 20px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    height: 200px;
+    margin-top: 100px;
+}
+
+#data a {
+    color: white;
+}
+
+#data a:hover {
+    text-decoration: none;
+}
+
+#myTable th {
+    background: rgb(211, 208, 208);
+}
+
+.bully {
+    background-color: rgb(250, 102, 102) !important;
+}
+
+.positive {
+    background: rgb(110, 212, 110) !important;
+}
+
+#StevenTheModel {
+    padding: 10px;
+    background: red;
+    color: white;
+    border: black solid 3px;
+    font-weight: bold;
+    
+}
+
+@media(max-width: 450px) {
+    .comment {
+        width: 100%;
+    }
+
+    #name {
+        margin-top: 20%;
+    }
+}
+

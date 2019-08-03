@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Style.css Stylesheet -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"></link>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Google WebFonts -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+        <!-- d3 -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+
+        <title>CyberPsyche</title>
+
+    </head>
+    <body>
+        
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Brand -->
+            <a class="navbar-brand mr-4" href="/"><div class="logo">CyberPsyche</div></a>
+            <!-- Search -->
+            <form class="navbar-form navbar-right">
+                <input class="form-control search" type="search" placeholder="Search for friends" aria-label="Search">
+            </form>
+            <div class="navbar-nav justify-content-center">
+                <ul class="navbar-nav">
+                    <li class="ml-4 tagline">Because people are a**holes</li>
+                </ul>
+            </div>
+            
+            
+            <!-- Collapse Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>`
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link active" href="#">Profile <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Home</a>
+                    <a class="nav-item nav-link" href="#">Account</a>
+                </div><!-- END NAV-ITEMS -->
+            </div><!-- END COLLAPSE -->
+                    <div class="menu-icons">
+                        <i class="material-icons"><a href="#">group_add</a></i>
+                        <i class="material-icons"><a href="#">notifications_active</a></i>
+                    </div>
+            
+        </nav><!-- END NAVIGATION -->
+
+
+        <div class="container col-12">
+
+            <div class="jumbotron col-sm-12 text-center"><h1>Training Data</h1></div>
+
+            <!-- <button id="runModel">Find Tweets</button> -->
+
+            <table id="myTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Comments</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table><!-- END TABLE -->
+        </div><!-- END CONTAINER -->
+
+
+
+
+
+
+         <!-- Footer -->
+         <footer class="col-md-12" style="height: 100px; background: rgb(98, 98, 255);">
+            <div class="col-sm-4 offset-sm-4 text-center py-5">
+                <p>&copy; 2019 UCI Data Analytics - Group 8</p>
+            </div>
+        </footer><!-- END FOOTER -->
+        
+
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <!-- JS -->
+        <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    </body>
+</html>

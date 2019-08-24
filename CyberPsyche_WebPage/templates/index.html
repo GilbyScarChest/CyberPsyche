@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <!-- Style.css Stylesheet -->
-        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"></link>
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <!-- Style.css Stylesheet -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"></link>
 
         <!-- Google WebFonts -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -66,7 +66,7 @@
             <!-- Main Content -->
             <div class="row col-sm-12 header-img"> 
                 <img class="profile-img ml-4" src="https://cdn11.bigcommerce.com/s-jbg7mp3qyd/images/stencil/800x800/products/3812/5593/awesome_face__91135.1464722405.jpg?c=2&imbypass=on"> 
-                <h1 id="name" class="name" style="z-index: 10">John Smith</h1>
+                <h1 id="name" class="name" style="z-index: 10">Helena Handbasket</h1>
             </div><!-- END ROW -->
             <div class="row col-sm-12 button-row">
                 <div class="col-sm-4 offset-sm-4 d-flex justify-items-center justify-content-center">
@@ -77,6 +77,9 @@
                 </div>
             </div><!-- END ROW -->
             <div class="row col-sm-12 h-auto">
+
+
+                <!-- Comment Page -->
                 <div id="comment-page" class="col-md-8 comment-page p-0">
 
                     <!-- Find Bullies Button -->
@@ -85,43 +88,53 @@
                     <div class="comment">
                         <img class="com-img" src="https://i.imgflip.com/rgenv.jpg">
                         <h4><strong>Hugh Raye</strong></h4>
-                        <i class="ml-auto">July, 25 2019</i>
-                        <p>What a wonderful day! It's BEAUTIFUL outside isn't it???</p>
-                    </div><!-- END COMMENT -->
+                        <i class="ml-auto">July, 24 2019</i>
+                        <p>What A Beautiful Day!!!</p>
+                    </div><!--END COMMENT-->
                     <div class="comment">
                         <img class="com-img" src="http://www.ragefaces.memesoftware.com/faces/large/okay-no-l.png">
                         <h4><strong>Anita Room</strong></h4>
                         <i class="ml-auto">July, 25 2019</i>
                         <p>Fuck you and the horse you rode in on!</p>
-                    </div><!-- END COMMENT -->
+                    </div><!--END COMMENT-->
                     <div class="comment">
                         <img class="com-img" src="https://i.warosu.org/data/biz/img/0093/37/1525878200403.jpg">
                         <h4><strong>Carole Singer</strong></h4>
-                        <i class="ml-auto">July, 25 2019</i>
-                        <p>OMG LOOOOOVVVVe!</p>
-                    </div><!-- END COMMENT -->
+                        <i class="ml-auto">July, 26 2019</i>
+                        <p>Fuck EVERYTHING!!! YOU ASSHOLE</p>
+                    </div><!--END COMMENT-->
+
+
+                    {% for timestamp, comment in comments.items() %}
                     <div class="comment">
+                        <img class="com-img" src="https://i.warosu.org/data/biz/img/0093/37/1525878200403.jpg">
+                        <h4><strong>User</strong></h4>
+                        <i class="ml-auto">{{timestamp}}</i>
+                        <p>{{comment}}</p>
+                    </div><!--END COMMENT-->
+                    {% endfor %}
+                    <!-- <div class="comment">
                         <img class="com-img" src="https://i.imgflip.com/rgenv.jpg">
                         <h4><strong>Hugh Raye</strong></h4>
                         <i class="ml-auto">July, 25 2019</i>
-                        <p>You are the BEST son'bitch I know</p>
-                    </div><!-- END COMMENT -->
-                    <div class="comment">
+                        <p>You are the BEST person I know</p>
+                    </div>END COMMENT -->
+                    <!-- <div class="comment">
                         <img class="com-img" src="https://ae01.alicdn.com/kf/HTB1ohjbRFXXXXaLXXXXq6xXFXXX3/13-8cm-14-5cm-Funny-Sweet-Jesus-Face-Meme-Vinyl-Decals-Car-Sticker-Black-Silver-S6.jpg_q50.jpg">
                         <h4><strong>Horace Cope</strong></h4>
                         <i class="ml-auto">July, 25 2019</i>
                         <p>I AM GOING TO KILL YOU!!!</p>
-                    </div><!-- END COMMENT -->
-                    <div class="comment">
+                    </div>END COMMENT -->
+                    <!-- <div class="comment">
                         <img class="com-img" src="https://i.warosu.org/data/biz/img/0093/37/1525878200403.jpg">
                         <h4><strong>Carole Singer</strong></h4>
                         <i class="ml-auto">July, 25 2019</i>
                         <p>Hahaha! You are seriously the worst!</p>
-                    </div><!-- END COMMENT -->
-                    <form id="comtext" class="row">
-                        <textarea class="comment-text col-sm-10 offset-sm-1" placeholder="Write a comment..."></textarea>
-                        <button id="send" class="col-sm-10 offset-sm-1" type="submit">Send</button>
-                    </form>
+                    </div>END COMMENT -->
+
+                    
+                    
+                    
                 </div><!-- END ROW -->
                 <div id="side" class="col-md-4 side p-0">
                     <div class="row">
@@ -199,7 +212,36 @@
                         </div><!-- END ROW -->
                     </div><!-- END ROW -->
                 </div><!-- END SIDE -->
+
+                <!-- Comment Form -->
+                <div class="col-md-8">
+                    <form action="{{url_for('hello')}}" method="post" id="comtext">
+                        {{form.hidden_tag()}}
+                        <!-- <textarea id="content" class="comment-text col-sm-10 offset-sm-1" placeholder="Write a comment..."></textarea> -->
+                        {{form.comment(_class="comment-text", placeholder="Write a comment...", style="width: 600px; height: 100px; margin-left: 70px;")}}
+                        <button id="send" class="col-sm-10 offset-sm-1" type="submit" >Send</button>
+                    </form>
+                </div><!-- END FORM -->
+
             </div><!-- END ROW -->
+
+            <div id="popup" class="justify-items-center justify-content-center">
+
+                <h2>Change Rating?</h2>
+                <div class="row col-sm-12">
+                    <div id="select_comment"></div>
+                    <div id="select_rating"></div>
+                </div>
+                <div id="buttons" class="row col-sm-12">
+                    <div class="col-sm-6">
+                        <button>Yes</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button>No</button>
+                    </div>
+                </div>
+
+            </div>
             
            
         </div><!-- END CONTAINER --> 
@@ -217,12 +259,14 @@
         
         
         <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- jQuery first, then jQuery(full), then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
+
         <!-- JS -->
         <script src="{{url_for('static', filename='js/model.js')}}"></script>>
+        <script src="{{url_for('static', filename='js/post_comments.js')}}"></script>>
     </body>
 </html>

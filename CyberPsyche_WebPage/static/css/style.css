@@ -180,8 +180,9 @@ a {
 }
 
 .comment-text {
-    height: 200px;
-    margin-top: 100px;
+    height: 200px !important;
+    margin-top: 10px;
+    width: 300px;
 }
 
 #data a {
@@ -211,6 +212,18 @@ a {
     border: black solid 3px;
     font-weight: bold;
     
+}
+
+#popup {
+    position: absolute;
+    min-height: 400px;
+    width: 600px;
+    background: rgb(231, 230, 230);
+    filter: drop-shadow(2px, 2px, 2px) 
+}
+
+#buttons {
+    padding: 20px;
 }
 
 @media(max-width: 450px) {

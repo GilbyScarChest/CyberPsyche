@@ -1,7 +1,7 @@
 #################################################
 # Dependencies
 #################################################
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, make_response
 from splinter import Browser
 import os
 from bs4 import BeautifulSoup as bs
@@ -98,10 +98,11 @@ class CommentForm(FlaskForm):
 #################################################
 # Routes
 #################################################
-updates = []
 # This route is the Home Page
 @app.route('/', methods=['GET', 'POST'])
 def hello():
+
+    #### Getting comments posted from form to put in json file ####
     form = CommentForm()
     with open("static/comments.json", 'r') as file:
         comments = json.load(file)
@@ -123,78 +124,36 @@ def data():
     return render_template("data.html")
 
 # This route is the db where comments and rating are stored
-@app.route('/admin', methods=['GET', 'POST'])
+#### MAKE THE MODEL SMARTER ####
+@app.route('/admin', methods=['POST'])
 def admin():
     
-    
-    # results = engine.execute('SELECT * FROM comments_sqlite').fetchall()
+    comment_to_add = request.form['Comment']
+    rating_to_add = request.form['Rating']
 
-    # comment = [result['comment'] for result in results]
-    # rating = [result['rating'] for result in results]
-    
-    value = request.args.get(data)
-    #print(value)
-    updates.append(value)
-    print(updates)
+    my_dict = {"Comment": comment_to_add, "Rating": rating_to_add}
 
-    # wordlist = json.loads(requests.get('wordlist'))
-    # print(wordlist)
-    # # do some stuff
-    # return jsonify(result=wordlist)
+    resp = make_response(json.dumps(my_dict))
+    resp.status_code = 200
 
+    print(comment_to_add) # This is the variable for "Comment" to add to DataFrame
+    print(rating_to_add)  # This is the variable for "Rating" to add to DataFrame
 
-    # trace = {
-    #     "Comment": value,
-    #     # "Rating": rating
-    # }
-
-    # return jsonify(trace)
+    return resp
 
 
 # This route is where the model runs
 @app.route('/model', methods=['GET', 'POST'])
 def Scrape_and_Run():
 
-    # message = [1, 0, 1, 0, 0, 0, 1]
-    # return jsonify(message)
-    
-    
-
-    #### SCRAPING COMMENTS ####
-    # filepath = os.path.join("templates", "index.html")
-    # with open(filepath) as file:
-    #     html = file.read()
-
-
-    #### Using Browser #############################
-    # executable_path = {"executable_path": "C:\\Users\\tdgso\\Desktop\\chromedriver"}
-    # return Browser("chrome", **executable_path, headless=False)
-
-    # url = "http://127.0.0.1:5000/" # Not sure if it'll work but I think it will
-
-    # browser.visit(url)
-
-    # time.sleep(2)
-
-    # html = browser.html
-    ##################################################
-
-    # Create a Beautiful Soup object
-    # soup = bs(html, 'html.parser')
-
-    # soup.body.find_all("div", class_="comment")
-
-    # # Print only the comments
-    # for item in soup.body.find_all("div", class_="comment"):
-    #     comments.append(item.p.text)
-
-    # # merged_list = comments + user_comments
-
-    # print(comments)
+    # Adding the comments which are hard-coded on the site
     comments_temp = ['What A Beautiful Day!!!', 'Fuck you and the horse you rode in on!', 'Fuck EVERYTHING!!! YOU ASSHOLE']
+
+    # Loading newly posted comments from json
     with open('static/comments.json', 'r') as file:
         comments_dict = json.load(file)
 
+    # Add newly posted comments from json to list of hard-coded comments
     comments_list = comments_temp + list(comments_dict.values())
 
     #### Pre Processing ####

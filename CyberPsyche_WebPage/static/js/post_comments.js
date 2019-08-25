@@ -65,9 +65,11 @@ var msg_list = []
 
 $("div .comment").click(function() {
     var index = $("div .comment").index(this);
-    var comment_text = $(this).children('p').text()
+    var comment_text = $(this).children('p').text();
+    var current_comment = $(this);
     var rating;
     var new_rating;
+    console.log(this)
     d3.json("/model").then(function(data){
 
         console.log(data[index])
@@ -83,28 +85,49 @@ $("div .comment").click(function() {
 
 
         if (confirm(`The AI model's rating for this comment is: ${rating}\n Should it be changed?`)) {
-            if (rating == 0){
-                new_rating = 1
+            if (rating == "Appropriate"){
+                new_rating = 1;
+                console.log(`new rating changed to ${new_rating}`);
             }
-            else{
-                new_rating = 0
+            else if (rating == "Inappropriate"){
+                new_rating = 0;
+                console.log(`new rating changed to ${new_rating}`);
             };
-          } 
+
+            
+            obj = {"Comment": comment_text, "Rating": new_rating};
+            console.log(obj);
+            
+            $.ajax({
+                // url: "{{url_for('admin')}}",
+                url: "admin",
+                type: "POST",
+                data: obj,
+                dataType: "json",
+                complete: alert("Thanks for making our algorythm stronger!")
+            })
+            
+        } 
         else{
-            new_rating = rating
+            alert("Request for change cancelled.")
         }
 
-        console.log(new_rating)
-
-        $.get(
-            url="admin",
-            data={"Comment":comment_text,
-                    "Rating": new_rating}, 
-            success=function(data) {
-                console.log('page content: ' + data);
-            }
-        );
+        // color_change = new_rating;
+        console.log(current_comment)
+        // console.log(color_change)
+        if (new_rating == 1){
+            current_comment[0].style.background = "red";
+        }
+        else if (new_rating == 0){
+            current_comment[0].style.background = "white";
+        };
+        
+        
     })
- });
+});
+
+// function colorChange(){
+
+// }
 
 

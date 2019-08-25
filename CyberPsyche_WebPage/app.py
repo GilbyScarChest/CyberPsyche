@@ -98,8 +98,7 @@ class CommentForm(FlaskForm):
 #################################################
 # Routes
 #################################################
-# user_comments = []
-# comments = []
+updates = []
 # This route is the Home Page
 @app.route('/', methods=['GET', 'POST'])
 def hello():
@@ -133,10 +132,10 @@ def admin():
     # comment = [result['comment'] for result in results]
     # rating = [result['rating'] for result in results]
     
-    # value = request.args.get('Comment')
-    # #print(value)
-    # user_comments.append(value)
-    #print(comments)
+    value = request.args.get(data)
+    #print(value)
+    updates.append(value)
+    print(updates)
 
     # wordlist = json.loads(requests.get('wordlist'))
     # print(wordlist)
@@ -144,12 +143,12 @@ def admin():
     # return jsonify(result=wordlist)
 
 
-    trace = {
-        "Comment": value,
-        # "Rating": rating
-    }
+    # trace = {
+    #     "Comment": value,
+    #     # "Rating": rating
+    # }
 
-    return jsonify(trace)
+    # return jsonify(trace)
 
 
 # This route is where the model runs
@@ -227,8 +226,8 @@ def Scrape_and_Run():
 
     new_df = pd.concat([new_df1,tweets])
 
-    X_all = [i[1]["content"] for i in new_df.iterrows()]
-    y = [i[1]["rating"] for i in new_df.iterrows()]
+    X_all =  list(new_df.content)
+    y = list(new_df.rating)
 
     reviews_train_clean = preprocess_reviews(X_all)
 

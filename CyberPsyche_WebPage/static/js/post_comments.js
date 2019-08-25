@@ -60,15 +60,51 @@ var msg_list = []
 //     document.getElementById('content').value = '';
 
     // console.log(msg_list)
-}
+// }
 
-function rate_comment(){
+
+$("div .comment").click(function() {
+    var index = $("div .comment").index(this);
+    var comment_text = $(this).children('p').text()
+    var rating;
+    var new_rating;
     d3.json("/model").then(function(data){
-        comment = document.querySelectorAll("div.comment");
-        
+
+        console.log(data[index])
+        console.log(comment_text)
+        // console.log($('.comment > p').text().index)
+
+        if (data[index] == 0){
+            rating = "Appropriate"
+        }
+        else{
+            rating = "Inappropriate"
+        }
+
+
+        if (confirm(`The AI model's rating for this comment is: ${rating}\n Should it be changed?`)) {
+            if (rating == 0){
+                new_rating = 1
+            }
+            else{
+                new_rating = 0
+            };
+          } 
+        else{
+            new_rating = rating
+        }
+
+        console.log(new_rating)
+
+        $.get(
+            url="admin",
+            data={"Comment":comment_text,
+                    "Rating": new_rating}, 
+            success=function(data) {
+                console.log('page content: ' + data);
+            }
+        );
     })
-
-}
-
+ });
 
 

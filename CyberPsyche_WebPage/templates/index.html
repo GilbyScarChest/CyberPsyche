@@ -11,9 +11,9 @@
         <!-- Style.css Stylesheet -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"></link>
 
-        <!-- Google WebFonts
+        <!--Google WebFonts-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"> -->
+      rel="stylesheet">
 
         <!-- d3 -->
         <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
         
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg">
             <!-- Brand -->
             <a class="navbar-brand mr-4" href="/"><div class="logo">CyberPsyche</div></a>
             <!-- Search -->
@@ -33,7 +33,7 @@
             </form>
             <div class="navbar-nav justify-content-center">
                 <ul class="navbar-nav">
-                    <li class="ml-4 tagline">Because people are a**holes</li>
+                    <li class="ml-4 tagline">Because some people are a**holes</li>
                 </ul>
             </div>
             
@@ -69,7 +69,7 @@
                 <h1 id="name" class="name" style="z-index: 10">Helena Handbasket</h1>
             </div><!-- END ROW -->
             <div class="row col-sm-12 button-row">
-                <div class="col-sm-4 offset-sm-4 d-flex justify-items-center justify-content-center">
+                <div class="col-sm-8 offset-sm-2 d-flex justify-items-center justify-content-center">
                     <button class="menu-btn">Comments</button>
                     <button class="menu-btn">About</button>
                     <button class="menu-btn">Friends</button>
@@ -101,7 +101,7 @@
                         <img class="com-img" src="https://ih1.redbubble.net/image.598048689.6731/flat,800x800,070,f.u3.jpg">
                         <h4><strong>Carole Singer</strong></h4>
                         <i class="ml-auto">July, 26 2019</i>
-                        <p>Fuck EVERYTHING!!! YOU ASSHOLE</p>
+                        <p>you fucking RACIST!!!</p>
                     </div><!--END COMMENT-->
 
 
@@ -215,12 +215,14 @@
 
                 <!-- Comment Form -->
                 <div class="col-md-8">
-                    <form action="{{url_for('hello')}}" method="post" id="comtext">
-                        {{form.hidden_tag()}}
-                        <!-- <textarea id="content" class="comment-text col-sm-10 offset-sm-1" placeholder="Write a comment..."></textarea> -->
-                        {{form.comment(_class="comment-text", placeholder="Write a comment...", style="width: 600px; height: 100px; margin-left: 70px;")}}
-                        <button id="send" class="col-sm-10 offset-sm-1" type="submit" >Send</button>
-                    </form>
+                    <div class="row col-md-12">
+                        <form action="{{url_for('hello')}}" method="post" id="comtext" class="col-md-12">
+                            {{form.hidden_tag()}}
+                            <!-- <textarea id="content" class="comment-text col-sm-10 offset-sm-1" placeholder="Write a comment..."></textarea> -->
+                            {{form.comment(_class="comment-text form col-md-12", placeholder="Write a comment...", style="width: 100%; height: 100px;")}}
+                            <button id="send" class="col-sm-10 offset-sm-1" type="submit" >Send</button>
+                        </form>
+                    </div>
                 </div><!-- END FORM -->
 
             </div><!-- END ROW -->
@@ -249,9 +251,9 @@
         
         
         <!-- Footer -->
-        <footer class="col-md-12" style="height: 100px; background: rgb(98, 98, 255);">
+        <footer class="col-md-12" style="height: 100px; background: #203463;">
             <div class="col-sm-4 offset-sm-4 text-center py-5">
-                <p>&copy; 2019 UCI Data Analytics - CyberPsyche</p>
+                <p style="color: white;">&copy; 2019 UCI Data Analytics - CyberPsyche</p>
             </div>
         </footer><!-- END FOOTER -->
         

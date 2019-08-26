@@ -147,7 +147,7 @@ def admin():
 def Scrape_and_Run():
 
     # Adding the comments which are hard-coded on the site
-    comments_temp = ['What A Beautiful Day!!!', 'Fuck you and the horse you rode in on!', 'Fuck EVERYTHING!!! YOU ASSHOLE']
+    comments_temp = ['What A Beautiful Day!!!', 'Fuck you and the horse you rode in on!', "you fucking RACIST!!!"]
 
     # Loading newly posted comments from json
     with open('static/comments.json', 'r') as file:

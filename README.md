@@ -26,6 +26,14 @@ The model was initially trained on a dataset of 20,000 random comments from Twit
 * JavaScript
 * WTForms
 
+## Team Members
+
+Aaron Kim
+Nary Tang
+Roopa Karajgar
+Tyler Gilbert
+
+
 ## Acknowledgments
 
 UCI Data Analytics Bootcamp,

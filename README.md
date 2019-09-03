@@ -28,10 +28,10 @@ The model was initially trained on a dataset of 20,000 random comments from Twit
 
 ## Team Members
 
-Aaron Kim
-Nary Tang
-Roopa Karajgar
-Tyler Gilbert
+* Aaron Kim
+* Nary Tang
+* Roopa Karajgar
+* Tyler Gilbert
 
 
 ## Acknowledgments
